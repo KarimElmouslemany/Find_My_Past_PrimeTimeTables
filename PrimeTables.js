@@ -10,9 +10,11 @@ function creating_table(list_prime) {
     Table[i] = []; // fill the table and making it into a 2D array
   }
   filling_table(Table, list_prime); // sending the created table to the filling function
+  return Table;
 }
 function filling_table(Table, list_prime) {
   console.log("the list: ", list_prime);
+  Table[0][0] = "";
   for (let i = 0; i < list_prime.length; i++) {
     // loops through the N prime numbers and addes them to the top edge and left edge
     Table[0][i + 1] = list_prime[i]; // top edge
@@ -62,5 +64,4 @@ function IsPrime(number) {
   }
 }
 
-iteration_loop(3);
-module.exports = { IsPrime, iteration_loop };
+module.exports = { IsPrime, iteration_loop ,creating_table,filling_table};
