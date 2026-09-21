@@ -1,21 +1,7 @@
-const readline = require("node:readline");
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
 let number_of_prime = 0;
 let count = 0;
 let N_prime_numbers = [];
 
-rl.question("Enter the number of primes: ", (input) => {
-    const N = Number(input);
-
-    main(N);
-
-    rl.close();
-  });
 function creating_table(list_prime) {
   let Table = []; // creating the table
   for (let i = 0; i < list_prime.length + 1; i++) {
