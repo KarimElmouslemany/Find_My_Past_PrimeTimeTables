@@ -28,7 +28,19 @@ function filling_table(Table, list_prime) {
       Table[i + 1][j + 1] = list_prime[i] * list_prime[j]; // times the prime numbers and addes them to the table
     }
   }
-  console.log(Table);
+  display_table(Table);
+}
+function formating_table(Table){
+  let output = ""
+  for(let i = 0; i < Table.length; i++){
+     output += Table[i].join("\t") + "\n"; // spreates each number 
+  }
+  return output;
+}
+function display_table(Table){
+
+  console.log(formating_table(Table));
+
 }
 function iteration_loop(N) {
   // count until found all N prime numbers
@@ -50,6 +62,7 @@ function iteration_loop(N) {
 }
 
 function IsPrime(number) {
+
   if (number >= 2) {
     // checks the number entered is lager then 2
     for (let i = 2; i < number; i++) {
@@ -64,4 +77,24 @@ function IsPrime(number) {
   }
 }
 
-module.exports = { IsPrime, iteration_loop ,creating_table,filling_table};
+function main(N){
+  let checker = true;
+  if(Number.isInteger(N) == false){ // checks if the number is a whole number 
+      console.log("please enter a whole number");
+      checker = false;
+      return checker;
+  }
+  if(N < 1){
+   checker = false;
+   console.log("Enter a whole number greater than or equal to 1 ");
+   return checker;
+  }
+    iteration_loop(N);
+    return true;
+  
+  
+}
+
+main(10);
+module.exports = { IsPrime, iteration_loop ,creating_table,filling_table,main,display_table,formating_table};
+
