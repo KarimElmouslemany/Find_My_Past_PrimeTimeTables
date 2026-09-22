@@ -1,20 +1,19 @@
-let number_of_prime = 0;
-let count = 0;
-let N_prime_numbers = [];
+// let number_of_prime = 0;
+// let count = 0;
+// let N_prime_numbers = [];
 
 function createTable(list_prime) {
   console.time("Table creation");
-  let Table = [] // creating the table
+  let Table = []; // creating the table
   for (let i = 0; i < list_prime.length + 1; i++) {
     Table[i] = []; // fill the table and making it into a 2D array
   }
-   console.timeEnd("Table creation");
+  console.timeEnd("Table creation");
   fillTable(Table, list_prime); // sending the created table to the filling function
   return Table;
-  
 }
 function fillTable(Table, list_prime) {
-   console.time("Table filling");
+  console.time("Table filling");
   Table[0][0] = "";
   for (let i = 0; i < list_prime.length; i++) {
     // loops through the N prime numbers and addes them to the top edge and left edge
@@ -44,25 +43,26 @@ function formatTable(Table) {
 }
 function displayTable(Table) {
   console.log(formatTable(Table));
-
 }
 function generatePrimes(N) {
-    console.time("generatePrimes");
+  console.time("generatePrimes");
+  let number_of_prime = 0;
+  let count = 0;
+  let N_prime_numbers = [];
   // count until found all N prime numbers
   while (number_of_prime < N) {
-   
     if (IsPrime(count) == true) {
       // checks if Is prime is true
       number_of_prime += 1; // increase counter by one
       N_prime_numbers.push(count); // addes the prime number to the array  N_prime_numbers that was declared at the top of the file
-    } if(count == 2){
-      count+=1 // increase count by one 
-    } 
-    else {
+    }
+    if (count == 2) {
+      count += 1; // increase count by one
+    } else {
       count += 2; // increase counter by two
     }
   }
-   console.timeEnd("generatePrimes");
+  console.timeEnd("generatePrimes");
   createTable(N_prime_numbers); // calls the creating table function
   return N_prime_numbers;
 }
@@ -97,10 +97,8 @@ function main(N) {
   }
   generatePrimes(N);
 
-  
   return true;
 }
-
 
 module.exports = {
   IsPrime,
@@ -111,9 +109,3 @@ module.exports = {
   displayTable,
   formatTable,
 };
-
-
-
-
-
-
