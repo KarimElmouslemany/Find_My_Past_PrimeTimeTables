@@ -1,7 +1,7 @@
 const test = require('node:test');
 const assert = require("node:assert");
 
-const {IsPrime, iteration_loop ,creating_table,filling_table,main,display_table,formating_table} = require('./PrimeTables');
+const {  IsPrime,generatePrimes, createTable,fillTable,main,displayTable,formatTable,} = require('./PrimeTables');
 
 test("2 is a prime number", () => {
     assert.strictEqual(IsPrime(2), true);
@@ -20,27 +20,27 @@ test('return true that this number is a prime number',() =>{
     assert.strictEqual(result,true);
 })
 test("returns the first prime when N = 1", () => {
-    assert.deepStrictEqual(iteration_loop(1), [2]);
+    assert.deepStrictEqual(generatePrimes(1), [2]);
 });
 
 test('return the first 3 prime numbers when N = 3',() =>{
-    const result = iteration_loop(3);
+    const result = generatePrimes(3);
     assert.deepStrictEqual(result,[2,3,5])
 })
 
 test("returns the first 5 primes when N = 5", () => {
-    assert.deepStrictEqual(iteration_loop(5),[2, 3, 5, 7, 11]);
+    assert.deepStrictEqual(generatePrimes(5),[2, 3, 5, 7, 11]);
 });
 
 test("creates 4 rows for 3 primes", () => {
     const primes = [2, 3, 5];
-    const table = creating_table(primes);
+    const table = createTable(primes);
 
     assert.strictEqual(table.length, 4);
 });
 test("creates 2 rows for 1 prime", () => {
     const primes = [2];
-    const table = creating_table(primes);
+    const table = createTable(primes);
 
     assert.strictEqual(table.length, 2);
 });
@@ -59,9 +59,9 @@ test("accepts a valid whole number", () => {
 
 test("fills the table correctly for one prime", () => {
     const primes = [2];
-    const table = creating_table(primes);
+    const table = createTable(primes);
 
-    filling_table(table, primes);
+    fillTable(table, primes);
 
     assert.deepStrictEqual(table, [
         ["", 2],
@@ -71,9 +71,9 @@ test("fills the table correctly for one prime", () => {
 
 test("fills the table correctly for three primes", () => {
     const primes = [2, 3, 5];
-    const table = creating_table(primes);
+    const table = createTable(primes);
 
-    filling_table(table, primes);
+    fillTable(table, primes);
 
     assert.deepStrictEqual(table, [
         ["", 2, 3, 5],
@@ -94,5 +94,5 @@ test("formats a table correctly", () => {
         "\t2\t3\t5\n" +
         "2\t4\t6\t10\n";
 
-    assert.strictEqual(formating_table(table), expected);
+    assert.strictEqual(formatTable(table), expected);
 });
