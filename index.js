@@ -7,6 +7,8 @@ const rl = readline.createInterface({
 });
 
 rl.question("Enter the number of primes: ", (input) => {
+    console.time("Total program");
     main(Number(input));
+    console.timeEnd("Total program");
     rl.close();
 });
