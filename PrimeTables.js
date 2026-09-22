@@ -2,18 +2,18 @@ let number_of_prime = 0;
 let count = 0;
 let N_prime_numbers = [];
 
-function creating_table(list_prime) {
+function createTable(list_prime) {
   console.time("Table creation");
-  let Table = []; // creating the table
+  let Table = [] // creating the table
   for (let i = 0; i < list_prime.length + 1; i++) {
     Table[i] = []; // fill the table and making it into a 2D array
   }
    console.timeEnd("Table creation");
-  filling_table(Table, list_prime); // sending the created table to the filling function
+  fillTable(Table, list_prime); // sending the created table to the filling function
   return Table;
   
 }
-function filling_table(Table, list_prime) {
+function fillTable(Table, list_prime) {
    console.time("Table filling");
   Table[0][0] = "";
   for (let i = 0; i < list_prime.length; i++) {
@@ -30,9 +30,9 @@ function filling_table(Table, list_prime) {
     }
   }
   console.timeEnd("Table filling");
-  // display_table(Table);
+  displayTable(Table);
 }
-function formating_table(Table) {
+function formatTable(Table) {
   console.time("Formatting start ");
   let output = "";
   for (let i = 0; i < Table.length; i++) {
@@ -42,12 +42,12 @@ function formating_table(Table) {
   console.timeEnd("Formatting end");
   return output;
 }
-function display_table(Table) {
-  // console.log(formating_table(Table));
+function displayTable(Table) {
+  console.log(formatTable(Table));
 
 }
-function iteration_loop(N) {
-    console.time("iteration_loop");
+function generatePrimes(N) {
+    console.time("generatePrimes");
   // count until found all N prime numbers
   while (number_of_prime < N) {
    
@@ -62,8 +62,8 @@ function iteration_loop(N) {
       count += 2; // increase counter by two
     }
   }
-   console.timeEnd("iteration_loop");
-  creating_table(N_prime_numbers); // calls the creating table function
+   console.timeEnd("generatePrimes");
+  createTable(N_prime_numbers); // calls the creating table function
   return N_prime_numbers;
 }
 
@@ -95,7 +95,7 @@ function main(N) {
     console.log("Enter a whole number greater than or equal to 1 ");
     return checker;
   }
-  iteration_loop(N);
+  generatePrimes(N);
 
   
   return true;
@@ -104,12 +104,12 @@ function main(N) {
 
 module.exports = {
   IsPrime,
-  iteration_loop,
-  creating_table,
-  filling_table,
+  generatePrimes,
+  createTable,
+  fillTable,
   main,
-  display_table,
-  formating_table,
+  displayTable,
+  formatTable,
 };
 
 
