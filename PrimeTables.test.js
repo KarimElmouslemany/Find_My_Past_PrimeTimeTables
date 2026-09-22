@@ -1,8 +1,8 @@
 const test = require('node:test');
 const assert = require("node:assert");
 
-const {  IsPrime,generatePrimes, createTable,fillTable,main,displayTable,formatTable,} = require('./PrimeTables');
-
+const {  IsPrime,generatePrimes, createTable,fillTable,main,formatTable,} = require('./PrimeTables'); // importes all the function that will be tested 
+// testing for  is the number a prime number 
 test("2 is a prime number", () => {
     assert.strictEqual(IsPrime(2), true);
 });
@@ -19,6 +19,7 @@ test('return true that this number is a prime number',() =>{
     const result = IsPrime(3);
     assert.strictEqual(result,true);
 })
+// testing if the right number of N primes will return 
 test("returns the first prime when N = 1", () => {
     assert.deepStrictEqual(generatePrimes(1), [2]);
 });
@@ -31,7 +32,7 @@ test('return the first 3 prime numbers when N = 3',() =>{
 test("returns the first 5 primes when N = 5", () => {
     assert.deepStrictEqual(generatePrimes(5),[2, 3, 5, 7, 11]);
 });
-
+// testing the number of rows created are correct in the table; 
 test("creates 4 rows for 3 primes", () => {
     const primes = [2, 3, 5];
     const table = createTable(primes);
@@ -44,6 +45,7 @@ test("creates 2 rows for 1 prime", () => {
 
     assert.strictEqual(table.length, 2);
 });
+// testing of validation
 test("rejects a decimal number", () => {
     assert.strictEqual(main(3.5), false);
 });
@@ -56,7 +58,7 @@ test("accepts one", () => {
 test("accepts a valid whole number", () => {
     assert.strictEqual(main(3), true);
 });
-
+// testing if the table is fiiled correctly and right order 
 test("fills the table correctly for one prime", () => {
     const primes = [2];
     const table = createTable(primes);
@@ -83,6 +85,7 @@ test("fills the table correctly for three primes", () => {
     ]);
 });
 
+// testing for format is correct 
 test("formats a table correctly", () => {
 
     const table = [
