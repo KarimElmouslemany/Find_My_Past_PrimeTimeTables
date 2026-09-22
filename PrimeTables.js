@@ -55,7 +55,6 @@ function iteration_loop(N) {
       number_of_prime += 1; // increase counter by one
       N_prime_numbers.push(count); // addes the prime number to the array  N_prime_numbers that was declared at the top of the file
       count += 1; // increase the counter by one
-      IsPrime(count);
     } else {
       count += 1; // increase counter by one
       IsPrime(count); // calls the function to check if its a prime
@@ -69,7 +68,7 @@ function iteration_loop(N) {
 function IsPrime(number) {
   if (number >= 2) {
     // checks the number entered is lager then 2
-    for (let i = 2; i < number; i++) {
+    for (let i = 2; i < Math.sqrt(number); i++) {
       if (number % i === 0) {
         // check if the number can be devide by as a whole number
         return false;
